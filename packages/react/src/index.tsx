@@ -11,10 +11,8 @@ import {
   QueryClientProvider,
   useQuery,
 } from "@tanstack/react-query";
-import {
-  PersistedClient,
-  persistQueryClient,
-} from "@tanstack/react-query-persist-client";
+import { persistQueryClient } from "@tanstack/react-query-persist-client";
+import { compress, decompress } from "lz-string";
 
 interface OposContext {
   config: SolanaConfig;
@@ -55,10 +53,8 @@ export const OposProvider = ({
       persister: createSyncStoragePersister({
         key: "opos_cache",
         storage: window.localStorage,
-        // Serialization is handled in `storage`.
-        serialize: (x) => x as unknown as string,
-        // Deserialization is handled in `storage`.
-        deserialize: (x) => x as unknown as PersistedClient,
+        serialize: (data) => compress(JSON.stringify(data)),
+        deserialize: (data) => JSON.parse(decompress(data)),
       }),
     });
 

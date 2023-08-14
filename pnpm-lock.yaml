@@ -65,6 +65,9 @@ importers:
       '@tanstack/react-query-persist-client':
         specifier: ^4.32.6
         version: 4.32.6(@tanstack/react-query@4.32.6)
+      lz-string:
+        specifier: ^1.5.0
+        version: 1.5.0
     devDependencies:
       '@solana/web3.js':
         specifier: ^1.78.1
@@ -2249,6 +2252,11 @@ packages:
     dependencies:
       yallist: 4.0.0
     dev: true
+
+  /lz-string@1.5.0:
+    resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
+    hasBin: true
+    dev: false
 
   /magic-string@0.30.2:
     resolution: {integrity: sha512-lNZdu7pewtq/ZvWUp9Wpf/x7WzMTsR26TWV03BRZrXFsv+BI6dy8RAiKgm1uM/kyR0rCfUcqvOlXKG66KhIGug==}
