@@ -1,4 +1,3 @@
-import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persister";
 import React, { createContext, useContext, useMemo } from "react";
 import {
   type SolanaConfig,
@@ -11,8 +10,6 @@ import {
   QueryClientProvider,
   useQuery,
 } from "@tanstack/react-query";
-import { persistQueryClient } from "@tanstack/react-query-persist-client";
-import { compress, decompress } from "lz-string";
 
 interface OposContext {
   config: SolanaConfig;
@@ -34,7 +31,6 @@ export const OposProvider = ({
       defaultOptions: {
         queries: {
           cacheTime: 1_000 * 60 * 60 * 24, // 24 hours
-          networkMode: "offlineFirst",
           refetchOnWindowFocus: false,
           retry: 0,
         },
@@ -42,20 +38,6 @@ export const OposProvider = ({
           networkMode: "offlineFirst",
         },
       },
-    });
-
-    if (typeof window === "undefined") {
-      return client;
-    }
-
-    persistQueryClient({
-      queryClient: client,
-      persister: createSyncStoragePersister({
-        key: "opos_cache",
-        storage: window.localStorage,
-        serialize: (data) => compress(JSON.stringify(data)),
-        deserialize: (data) => JSON.parse(decompress(data)),
-      }),
     });
 
     return client;
@@ -81,6 +63,7 @@ export const useFetchTokenAccounts = (wallet: PublicKey) => {
 
   return useQuery({
     queryKey: ["opos", "tokens", wallet.toBase58()],
+
     queryFn: async () => {
       const [tokens2022, tokens] = await Promise.all([
         fetchToken2022AccountsByOwner(config, wallet),

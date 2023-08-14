@@ -8,8 +8,8 @@ export default defineConfig((options) => ({
   splitting: true,
   sourcemap: true,
   minify: false,
+  treeshake: true,
   clean: true,
   skipNodeModulesBundle: true,
   dts: true,
-  external: ["node_modules"],
 }));
