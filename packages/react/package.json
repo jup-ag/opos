@@ -1,0 +1,32 @@
+{
+	"name": "@jup-ag/use-opos",
+	"version": "0.0.0-alpha.0",
+	"description": "React hook",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "tsup build src/index.tsx",
+		"dev": "tsup src/index.tsx --watch"
+	},
+	"peerDependencies": {
+		"@solana/web3.js": ">=1.78.0",
+		"react": ">=18"
+	},
+	"sideEffects": false,
+	"devDependencies": {
+		"@solana/web3.js": "^1.78.1",
+		"@types/react": "^18.2.20",
+		"react": "^18.2.0"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "MIT",
+	"dependencies": {
+		"@jup-ag/opos": "workspace:*",
+		"@solana/spl-token": "^0.3.8",
+		"@tanstack/query-sync-storage-persister": "^4.32.6",
+		"@tanstack/react-query": "^4.32.6",
+		"@tanstack/react-query-persist-client": "^4.32.6"
+	}
+}

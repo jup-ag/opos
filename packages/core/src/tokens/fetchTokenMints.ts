@@ -1,7 +1,7 @@
 import { PublicKey } from "@solana/web3.js";
 import { SolanaConfig } from "../types/config";
 import { MintAccount, decodeMintAccount } from "./struct";
-import { AccountWithPubkey } from "../types";
+import type { AccountWithPubkey } from "../types";
 import { chunkedGetMultipleAccountInfos } from "../utils/chunkedGetMultipleAccounts";
 
 export const fetchTokenMint = async (

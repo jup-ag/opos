@@ -1,12 +1,11 @@
 import { describe, expect, it } from "vitest";
 import { configureSolana } from "../src/configureSolana";
-import { mainnet } from "../src/chains/mainnet";
 
 describe("configureSolana", () => {
   it("should work", () => {
     const config = configureSolana({
       autoConnect: true,
-      chain: mainnet,
+      rpcUrl: "https://api.mainnet-beta.solana.com",
     });
 
     expect(config.connection).toBeDefined();

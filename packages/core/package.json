@@ -1,28 +1,29 @@
 {
-  "name": "core",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsup build src/index.ts",
-    "dev": "tsup"
-  },
-  "peerDependencies": {
-    "@solana/web3.js": ">=1.78.0"
-  },
-  "sideEffects": false,
-  "devDependencies": {
-    "@solana/web3.js": "^1.78.1",
-    "@types/bn.js": "^5.1.1",
-    "bn.js": "^5.2.1",
-    "decimal.js": "^10.4.3"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "@solana/spl-token": "^0.3.8",
-    "zod": "^3.21.4"
-  }
+	"name": "@jup-ag/opos",
+	"version": "0.0.0-alpha.0",
+	"description": "",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "tsup build src/index.ts",
+		"dev": "tsup src/index.ts --watch"
+	},
+	"peerDependencies": {
+		"@solana/web3.js": ">=1.78.0"
+	},
+	"sideEffects": false,
+	"devDependencies": {
+		"@solana/web3.js": "^1.78.1",
+		"@types/bn.js": "^5.1.1",
+		"bn.js": "^5.2.1",
+		"decimal.js": "^10.4.3"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "MIT",
+	"dependencies": {
+		"@solana/spl-token": "^0.3.8",
+		"zod": "^3.21.4"
+	}
 }

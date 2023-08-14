@@ -17,8 +17,8 @@ importers:
         specifier: 12.1.3
         version: 12.1.3
       tsup:
-        specifier: ^7.1.0
-        version: 7.1.0(typescript@5.1.6)
+        specifier: ^7.2.0
+        version: 7.2.0(typescript@5.1.6)
       typescript:
         specifier: ^5.1.6
         version: 5.1.6
@@ -47,6 +47,34 @@ importers:
       decimal.js:
         specifier: ^10.4.3
         version: 10.4.3
+
+  packages/react:
+    dependencies:
+      '@jup-ag/opos':
+        specifier: workspace:*
+        version: link:../core
+      '@solana/spl-token':
+        specifier: ^0.3.8
+        version: 0.3.8(@solana/web3.js@1.78.1)
+      '@tanstack/query-sync-storage-persister':
+        specifier: ^4.32.6
+        version: 4.32.6
+      '@tanstack/react-query':
+        specifier: ^4.32.6
+        version: 4.32.6(react@18.2.0)
+      '@tanstack/react-query-persist-client':
+        specifier: ^4.32.6
+        version: 4.32.6(@tanstack/react-query@4.32.6)
+    devDependencies:
+      '@solana/web3.js':
+        specifier: ^1.78.1
+        version: 1.78.1
+      '@types/react':
+        specifier: ^18.2.20
+        version: 18.2.20
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
 packages:
 
@@ -664,6 +692,48 @@ packages:
       - supports-color
       - utf-8-validate
 
+  /@tanstack/query-core@4.32.6:
+    resolution: {integrity: sha512-YVB+mVWENQwPyv+40qO7flMgKZ0uI41Ph7qXC2Zf1ft5AIGfnXnMZyifB2ghhZ27u+5wm5mlzO4Y6lwwadzxCA==}
+    dev: false
+
+  /@tanstack/query-persist-client-core@4.32.6:
+    resolution: {integrity: sha512-MJJ7CldvT5HOel50h/3wOZZwVlIcroFD5Vxn8vPsfo2C0qQ208ilmN/81JWutm/lWy4n2BjnCrrWv6HvVI7S0w==}
+    dependencies:
+      '@tanstack/query-core': 4.32.6
+    dev: false
+
+  /@tanstack/query-sync-storage-persister@4.32.6:
+    resolution: {integrity: sha512-hTwNo5O5EvydbfdVvwnwY0nIrNg1BxKEV4WAA8A+0NP9yc/9xoWy8RxbIkcz1p4JN2JhagaTKek8Fa5h5KitsA==}
+    dependencies:
+      '@tanstack/query-persist-client-core': 4.32.6
+    dev: false
+
+  /@tanstack/react-query-persist-client@4.32.6(@tanstack/react-query@4.32.6):
+    resolution: {integrity: sha512-EmNnYpvFYpxS4j5WFeNmfVVBxqq4RDnEFDBZwNKRfb4pzukcx/hcWtwqFk7Qj0EI4Dk8QGl239MEYwJbAc83tQ==}
+    peerDependencies:
+      '@tanstack/react-query': ^4.32.6
+    dependencies:
+      '@tanstack/query-persist-client-core': 4.32.6
+      '@tanstack/react-query': 4.32.6(react@18.2.0)
+    dev: false
+
+  /@tanstack/react-query@4.32.6(react@18.2.0):
+    resolution: {integrity: sha512-AITu/IKJJJXsHHeXNBy5bclu12t08usMCY0vFC2dh9SP/w6JAk5U9GwfjOIPj3p+ATADZvxQPe8UiCtMLNeQbg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      '@tanstack/query-core': 4.32.6
+      react: 18.2.0
+      use-sync-external-store: 1.2.0(react@18.2.0)
+    dev: false
+
   /@tootallnate/once@2.0.0:
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
     engines: {node: '>= 10'}
@@ -708,6 +778,22 @@ packages:
 
   /@types/normalize-package-data@2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
+    dev: true
+
+  /@types/prop-types@15.7.5:
+    resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
+    dev: true
+
+  /@types/react@18.2.20:
+    resolution: {integrity: sha512-WKNtmsLWJM/3D5mG4U84cysVY31ivmyw85dE84fOCk5Hx78wezB/XEjVPWl2JTZ5FkEeaTJf+VgUAUn3PE7Isw==}
+    dependencies:
+      '@types/prop-types': 15.7.5
+      '@types/scheduler': 0.16.3
+      csstype: 3.1.2
+    dev: true
+
+  /@types/scheduler@0.16.3:
+    resolution: {integrity: sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==}
     dev: true
 
   /@types/semver@7.5.0:
@@ -1138,7 +1224,7 @@ packages:
     dev: true
 
   /concat-map@0.0.1:
-    resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
+    resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: true
 
   /cross-spawn@5.1.0:
@@ -1163,6 +1249,10 @@ packages:
     engines: {node: '>=14'}
     dependencies:
       rrweb-cssom: 0.6.0
+    dev: true
+
+  /csstype@3.1.2:
+    resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
     dev: true
 
   /csv-generate@3.4.3:
@@ -2005,7 +2095,6 @@ packages:
 
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
-    dev: true
 
   /js-yaml@3.14.1:
     resolution: {integrity: sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==}
@@ -2134,6 +2223,12 @@ packages:
   /lodash.startcase@4.4.0:
     resolution: {integrity: sha512-+WKqsK294HMSc2jEbNgpHpd0JfIBhp7rEV4aqXWqFr6AlXov+SlcgB1Fv01y2kGe3Gc8nMW7VA0SrGuSkRfIEg==}
     dev: true
+
+  /loose-envify@1.4.0:
+    resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
+    hasBin: true
+    dependencies:
+      js-tokens: 4.0.0
 
   /loupe@2.3.6:
     resolution: {integrity: sha512-RaPMZKiMy8/JruncMU5Bt6na1eftNoo++R4Y+N2FrxkDVTrGvcyzFTsaGif4QTeKESheMGegbhw6iUAq+5A8zA==}
@@ -2574,6 +2669,12 @@ packages:
   /react-is@18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: true
+
+  /react@18.2.0:
+    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      loose-envify: 1.4.0
 
   /read-pkg-up@7.0.1:
     resolution: {integrity: sha512-zK0TB7Xd6JpCLmlLmufqykGE+/TlOePD6qKClNW7hHDKFh/J7/7gCWGR7joEQEW1bKq3a3yUZSObOoWLFQ4ohg==}
@@ -3068,8 +3169,8 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
-  /tsup@7.1.0(typescript@5.1.6):
-    resolution: {integrity: sha512-mazl/GRAk70j8S43/AbSYXGgvRP54oQeX8Un4iZxzATHt0roW0t6HYDVZIXMw0ZQIpvr1nFMniIVnN5186lW7w==}
+  /tsup@7.2.0(typescript@5.1.6):
+    resolution: {integrity: sha512-vDHlczXbgUvY3rWvqFEbSqmC1L7woozbzngMqTtL2PGBODTtWlRwGDDawhvWzr5c1QjKe4OAKqJGfE1xeXUvtQ==}
     engines: {node: '>=16.14'}
     hasBin: true
     peerDependencies:
@@ -3211,6 +3312,14 @@ packages:
       querystringify: 2.2.0
       requires-port: 1.0.0
     dev: true
+
+  /use-sync-external-store@1.2.0(react@18.2.0):
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /utf-8-validate@5.0.10:
     resolution: {integrity: sha512-Z6czzLq4u8fPOyx7TU6X3dvUZVvoJmxSQ+IcrlmagKhilxlhZgxPK6C5Jqbkw1IDUmFTM+cz9QDnnLTwDz/2gQ==}
