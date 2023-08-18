@@ -1,6 +1,6 @@
 import { AccountInfo, Connection, PublicKey } from "@solana/web3.js";
 import { chunks } from "./chunks";
-import { AccountWithPubkey } from "../types";
+import type { AccountWithPubkey } from "../types";
 
 export async function chunkedGetMultipleAccountInfos(
   connection: Connection,

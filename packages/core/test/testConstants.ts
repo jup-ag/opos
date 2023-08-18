@@ -1,10 +1,9 @@
 import { PublicKey } from "@solana/web3.js";
-import { mainnet } from "../src/chains/mainnet";
 import { configureSolana } from "../src/configureSolana";
 
 export const testConfig = configureSolana({
   autoConnect: true,
-  chain: mainnet,
+  rpcUrl: "https://api.mainnet-beta.solana.com",
 });
 
 export const TEST_WALLET = new PublicKey(
