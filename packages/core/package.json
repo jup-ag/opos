@@ -19,9 +19,7 @@
 		"bn.js": "^5.2.1",
 		"decimal.js": "^10.4.3"
 	},
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"keywords": [],
 	"author": "",
 	"license": "MIT",
